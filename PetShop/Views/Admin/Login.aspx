@@ -12,7 +12,7 @@
 
 </head>
 <body>
-    <div aria-live="polite" aria-atomic="true" class="toast__box">
+    <div class="toast__box">
         <div class="toast__container"></div>
     </div>
     <div class="container-fluid">
@@ -46,24 +46,32 @@
     </div>
 
     <script src="../../Assets/Libs/jquery-3.6.3.min.js"></script>
+    <script src="../../Assets/Libs/bootstrap.js"></script>
 
     <script type="text/javascript">
         function toastMessage(options) {
+
+            //options = {
+            //    from: options.from || "Hệ Thống",
+            //    to: options.to || "local",
+            //    type: options.type || "warning",
+            //    message: options.message || "Lỗi không xác định.",
+            //    duration: options.duration || 3000, // thời gian hiện
+            //};
             options = {
-                from: options.from || "Hệ Thống",
-                to: options.to || "local",
-                type: options.type || "warning",
-                message: options.message || "Lỗi không xác định.",
-                duration: options.duration || 3000, // thời gian hiện
-                delay: (options.duration > 1000) ? options.duration - 1000 : options.duration || 1000 // thời gian callback
-            };
+                    from: "hệ thống",
+                    to: "local",
+                    type: "warning",
+                    message: "lỗi không xác định.",
+                    duration: 3000, // thời gian hiện
+                };
 
             // icons
             const icons = {
                 warning: "<i class='ri-error-warning-fill warning'></i>",
                 danger: "<i class='ri-close-circle-fill danger'></i>",
                 success: "<i class='ri-checkbox-circle-fill success'></i>",
-                user: "<i class='ri-account-pin-circle-fill warning'></i>",
+                user: "<i class='ri-account-pin-circle-fill x'></i>",
                 system: "<i class='ri-cpu-fill success'></i>"
             }
 

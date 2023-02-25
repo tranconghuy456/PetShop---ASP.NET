@@ -10,14 +10,9 @@ namespace PetShop.Views.Admin
 {
     public partial class Login : System.Web.UI.Page
     {
+        ToastMessage toastMessage;
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void ToastMessage(object[] options)
-        {
-          //  ScriptManager.RegisterStartupScript(this, this.GetType(), System.Guid.NewGuid().ToString(), "ShowMessage('" + Message + "','" + type + "');", true);
         }
 
         protected void loginBtn_Click(object sender, EventArgs e)
@@ -30,7 +25,13 @@ namespace PetShop.Views.Admin
             {
                 if (users.UserCheckPoint(strUsername, strPassword) > 0)
                 {
-                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", "okok");
+                    // if user exist
+                }
+                else {
+                    // if not
+                    //ClientScript.RegisterStartupScript(GetType(), "hwa", "test();", true);
+                    toastMessage = new ToastMessage();
+                    ClientScript.RegisterStartupScript(this.GetType(), "Toast Message", toastMessage.options(), true);
                 }
             }
         }
